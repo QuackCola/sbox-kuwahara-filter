@@ -9,4 +9,6 @@ Kuwahara Filter implementation adapted for s&box.
 * Kuwahara Filter post-processing component
 
 # Credits
+Facepunch (Square Map) - https://asset.party/facepunch/square
+
 Matthijs Verkuijlen (Original Code) - https://www.artstation.com/artwork/282mNa
