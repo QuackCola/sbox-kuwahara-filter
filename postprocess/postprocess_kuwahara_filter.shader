@@ -108,6 +108,7 @@ PS
         return vColor;
     }
 
+    
     float3 KuwaharaFilter(float2 flRadius, float2 vScreenUV, float2 vViewSize, bool bDirectional = false)
     {
         float3 aMean[4] = {
@@ -237,7 +238,7 @@ PS
         float2 vScreenUv = i.vPositionSs.xy / g_vRenderTargetSize;
         float4 SceneColor = FetchSceneColor( vScreenUv );
 
-        //g_vRenderTargetSize seems to be what is used in place of stuff like TexelSize from unity & Unreal I guess.
+        //g_vRenderTargetSize seems to be what is used in place of stuff like TexelSize from unity & Unreal I guess?.
 
         return float4(KuwaharaFilter(round(float2(g_flRadiusX,g_flRadiusY)),vScreenUv,g_vRenderTargetSize,g_bDirectional),1);
     }
