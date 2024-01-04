@@ -29,7 +29,7 @@
     "CsProjName": "",
     "HttpAllowList": null,
     "TickRate": 50,
-    "StartupScene": "scenes/tests/kuwahara_filter.scene",
+    "StartupScene": "scenes/tests/kuwahara_filter2.scene",
     "Compiler": {
       "RootNamespace": "Sandbox",
       "DefineConstants": "SANDBOX;ADDON;DEBUG",
