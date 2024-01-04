@@ -1,0 +1,6 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "postprocess/postprocess_kuwahara_filter.shader"
+}
