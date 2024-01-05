@@ -70,15 +70,15 @@ PS
         return Tex2D( g_tColorBuffer, vScreenUv.xy );
     }
 
-    float GetRelativeLuminance(float3 vSceneColor)
+    float GetRelativeLuminance(float3 vColor)
     {   
         // https://en.wikipedia.org/wiki/Relative_luminance
         /*
-        float3 L = vSceneColor * float3(0.2126,0.7152,0.0722);
+        float3 L = vColor * float3(0.2126,0.7152,0.0722);
         return (L.x + L.y) + L.z;
         */
 
-        return dot(float3(0.2126,0.7152,0.0722),vSceneColor);
+        return dot(float3(0.2126,0.7152,0.0722),vColor);
     }
 
     //
