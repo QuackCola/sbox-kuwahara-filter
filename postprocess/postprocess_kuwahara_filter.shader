@@ -84,7 +84,7 @@ PS
     //
     // calculate which ever color region has the lowest standard deviaion.
     //
-    float3 GetLowestStandardDeviation(float n, float3 vColor, float3 aMean[4], float3 aSigma[4])
+    float3 CalculateLowestStandardDeviation(float n, float3 vColor, float3 aMean[4], float3 aSigma[4])
     {
         float flMin = 1;
         float flSigma_f;
@@ -227,7 +227,7 @@ PS
         }
 
         float n = (flRadius.x + 1) * (flRadius.y + 1); // number of samples that we have taken per region
-        return GetLowestStandardDeviation(n,vColor,aMean,aSigma);
+        return CalculateLowestStandardDeviation(n,vColor,aMean,aSigma);
     }
 
     //
