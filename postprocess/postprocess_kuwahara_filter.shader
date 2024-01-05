@@ -178,7 +178,7 @@ PS
                 flAngle = atan(flGradientY / flGradientX);
             }
 
-            // Calculate sin & cos from flAngle
+            // Calculate sine & cosine from flAngle
             float flSine = sin(flAngle);
             float flCosine = cos(flAngle);
 
