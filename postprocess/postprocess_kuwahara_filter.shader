@@ -63,7 +63,7 @@ PS
     float g_flRadiusX < Attribute("Kuwahara.RadiusX"); Range(0,16); Default(3); >;
     float g_flRadiusY < Attribute("Kuwahara.RadiusY"); Range(0,16); Default(5); >;
 
-    CreateTexture2D( g_tColorBuffer ) < Attribute( "ColorBuffer" );  	SrgbRead( true ); Filter( MIN_MAG_LINEAR_MIP_POINT ); AddressU( MIRROR ); AddressV( MIRROR ); >;
+    CreateTexture2D( g_tColorBuffer ) < Attribute( "ColorBuffer" ); SrgbRead( true ); Filter( MIN_MAG_LINEAR_MIP_POINT ); AddressU( MIRROR ); AddressV( MIRROR ); >;
 
     float4 FetchSceneColor( float2 vScreenUv )
     {
@@ -87,7 +87,7 @@ PS
     float3 GetLowestStandardDeviation(float n, float3 vColor, float3 aMean[4], float3 aSigma[4])
     {
         float flMin = 1;
-        float sigma_f;
+        float flSigma_f;
 
         [unroll]
         for(int i = 0; i < 4; i++)
@@ -96,11 +96,11 @@ PS
             aSigma[i] = abs(aSigma[i] / n - aMean[i] * aMean[i]);
 
             // find the deviation of each channel and add them together.
-            sigma_f = aSigma[i].r + aSigma[i].g + aSigma[i].b;
+            flSigma_f = aSigma[i].r + aSigma[i].g + aSigma[i].b;
 
-            if(sigma_f < flMin )
+            if(flSigma_f < flMin )
             {
-                flMin = sigma_f;
+                flMin = flSigma_f;
                 vColor = aMean[i];
             }
         }
@@ -139,12 +139,12 @@ PS
         if (bDirectional)
         {
             // Sobel Operator Start 
-            float GradientX = 0;
-            float GradientY = 0;
-            int index = 0;
+            float flGradientX = 0;
+            float flGradientY = 0;
+            int nIndex = 0;
 
-            float sobelX[9] = { -1 , -2, -1, 0, 0, 0, 1, 2, 1};
-            float sobelY[9] = { -1 , 0, 1, -2, 0, 2, -1, 0, 1};
+            float aSobelX[9] = { -1 , -2, -1, 0, 0, 0, 1, 2, 1};
+            float aSobelY[9] = { -1 , 0, 1, -2, 0, 2, -1, 0, 1};
 
             [unroll]
             for(int x = -1; x <= 1; x++)
@@ -152,9 +152,9 @@ PS
                 for(int y = -1; y <= 1; y++)
                 {   
                     // Skip unessesary texture lookup.
-                    if(index == 4)
+                    if(nIndex == 4)
                     {
-                        index++;
+                        nIndex++;
                         continue;
                     }
 
@@ -162,27 +162,27 @@ PS
                     float3 vPixelColor = FetchSceneColor(vScreenUV + vOffset).xyz;
                     float vPixelLuminance = GetRelativeLuminance(vPixelColor); // Get the releative luminace of the surrounding pixels of the current pixel that is being sampled.
 
-                    GradientX += vPixelLuminance * sobelX[index];
-                    GradientY += vPixelLuminance * sobelY[index];
+                    flGradientX += vPixelLuminance * aSobelX[nIndex];
+                    flGradientY += vPixelLuminance * aSobelY[nIndex];
 
-                    index++;
+                    nIndex++;
                 }
             }
             // Sobel Operator End
 
-            float vAngle = 0;
+            float flAngle = 0;
 
-            // Avoid a potential divide by zero.
-            if(abs(GradientX) > 0.001)
+            // Avoid a potential divide by zero in flGradientX
+            if(abs(flGradientX) > 0.001)
             {
-                vAngle = atan(GradientY / GradientX);
+                flAngle = atan(flGradientY / flGradientX);
             }
 
-            // Calculate sin & cos fron vAngle
-            float s = sin(vAngle);
-            float c = cos(vAngle);
+            // Calculate sin & cos from flAngle
+            float flSine = sin(flAngle);
+            float flCosine = cos(flAngle);
 
-            // Loop through for our samples. Have to include a duplcate of the loop below in here, but fuck it atleast it works.
+            // Loop through for our samples. Note : Have to include a fucking duplcate of the loop below in here since it wont work outside the if (bDirectional) statement..
             [unroll]
             for(int i = 0; i < 4; i++) 
             {
@@ -192,9 +192,9 @@ PS
                     {
                         vSamplePosition = float2(j,k) + aOffsets[i];
 
-                        float2 offs = vSamplePosition * vTexelSize;
-                        offs = float2(offs.x * c - offs.y * s, offs.x * s + offs.y * c);// Rotate our samples.
-                        float2 vUVpos = vScreenUV + offs; // Divide vSamplePosition by offs to get back into the 0 to 1 range.
+                        float2 vOffs = vSamplePosition * vTexelSize;
+                        vOffs = float2(vOffs.x * flCosine - vOffs.y * flSine, vOffs.x * flSine + vOffs.y * flCosine);// Rotate our samples.
+                        float2 vUVpos = vScreenUV + vOffs; // Divide vSamplePosition by vOffs to get back into the 0 to 1 range.
 
                         vColor = FetchSceneColor(vUVpos).xyz;
                         aMean[i] += vColor; // Calculate the average of multiple samples.
@@ -215,8 +215,8 @@ PS
                     {
                         vSamplePosition = float2(j,k) + aOffsets[i];
 
-                        float2 offs = vSamplePosition * vTexelSize;
-                        float2 vUVpos = vScreenUV + offs; // Divide vSamplePosition by offs to get back into the 0 to 1 range?.
+                        float2 vOffs = vSamplePosition * vTexelSize;
+                        float2 vUVpos = vScreenUV + vOffs; // Divide vSamplePosition by vOffs to get back into the 0 to 1 range?.
 
                         vColor = FetchSceneColor(vUVpos).xyz;
                         aMean[i] += vColor; // Calculate the average of multiple samples.
@@ -236,7 +236,7 @@ PS
     float4 MainPs( PixelInput i ): SV_Target
     {
         float2 vScreenUv = i.vPositionSs.xy / g_vRenderTargetSize;
-        float4 SceneColor = FetchSceneColor( vScreenUv );
+        //float4 vSceneColor = FetchSceneColor( vScreenUv );
 
         //g_vRenderTargetSize seems to be what is used in place of stuff like TexelSize from unity & Unreal I guess?.
 
