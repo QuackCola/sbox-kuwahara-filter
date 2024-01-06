@@ -12,4 +12,4 @@ Kuwahara Filter implementation adapted for s&box.
 # Credits
 Facepunch (Square Map) - https://asset.party/facepunch/square
 
-Matthijs Verkuijlen (Original Code) - https://www.artstation.com/artwork/282mNa
+Matthijs Verkuijlen (Original implementation) - https://www.artstation.com/artwork/282mNa
