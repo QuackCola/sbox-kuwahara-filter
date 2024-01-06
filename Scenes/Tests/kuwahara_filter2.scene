@@ -1,4 +1,5 @@
 {
+  "Id": "f5b5e7af-049e-4e82-b02d-fdab609cca7b",
   "GameObjects": [
     {
       "Id": "c7b7a49f-d221-433f-b9df-5064d4d666ca",
@@ -40,6 +41,14 @@
           "Viewport": "0,0,1,1",
           "ZFar": 10000,
           "ZNear": 10
+        },
+        {
+          "__type": "Tonemapping",
+          "__enabled": true,
+          "ExposureCompensation": 0,
+          "MaximumExposure": 2,
+          "MinimumExposure": 1,
+          "Rate": 1
         },
         {
           "__type": "KuwaharaFilter",
