@@ -1,8 +1,9 @@
 # Kuwahara Filter
 Kuwahara Filter implementation adapted for s&box.
 
-![Screenshot 2024-01-04 174734](https://github.com/QuackCola/sbox-kuwahara-filter/assets/23345567/7bbf46d5-9799-43fe-a40a-b06801a0b2c0)
-
+![Screenshot 1](/images/FilterOnDirectionalEnabled.png "Screenshot 1"))
+![Filter Comparison 1](/images/FilterComparison.gif "Filter Comparison 1"))
+![Filter Comparison 2](/images/FilterComparison2.gif "Filter Comparison 2"))
 
 # What's Included?
 * 2 test scenes
