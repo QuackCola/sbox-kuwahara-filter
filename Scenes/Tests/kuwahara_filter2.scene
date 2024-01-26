@@ -9,7 +9,6 @@
       "Components": [
         {
           "__type": "MapInstance",
-          "__enabled": true,
           "MapName": "facepunch.square",
           "OnMapLoaded": null,
           "OnMapUnloaded": null,
@@ -27,7 +26,6 @@
       "Components": [
         {
           "__type": "CameraComponent",
-          "__enabled": true,
           "BackgroundColor": "0.33333,0.46275,0.52157,1",
           "ClearFlags": "All",
           "FieldOfView": 60,
@@ -43,8 +41,11 @@
           "ZNear": 10
         },
         {
+          "__type": "NoClip",
+          "MoveSpeed": 600
+        },
+        {
           "__type": "Tonemapping",
-          "__enabled": true,
           "ExposureCompensation": 0,
           "MaximumExposure": 2,
           "MinimumExposure": 1,
@@ -52,15 +53,9 @@
         },
         {
           "__type": "KuwaharaFilter",
-          "__enabled": true,
           "Directional": true,
           "RadiusX": 5,
           "RadiusY": 3
-        },
-        {
-          "__type": "NoClip",
-          "__enabled": true,
-          "MoveSpeed": 600
         }
       ]
     }
