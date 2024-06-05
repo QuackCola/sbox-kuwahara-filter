@@ -1,31 +1,37 @@
 {
-  "Id": "f5b5e7af-049e-4e82-b02d-fdab609cca7b",
+  "__guid": "f5b5e7af-049e-4e82-b02d-fdab609cca7b",
   "GameObjects": [
     {
-      "Id": "c7b7a49f-d221-433f-b9df-5064d4d666ca",
+      "__guid": "c7b7a49f-d221-433f-b9df-5064d4d666ca",
+      "Flags": 0,
       "Name": "Map Loader",
       "Position": "-101.0034,-19.83072,71.2681",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Components": [
         {
-          "__type": "MapInstance",
+          "__type": "Sandbox.MapInstance",
+          "__guid": "8a9a04dd-8921-4541-8463-7c4f6586b3d0",
           "MapName": "facepunch.square",
-          "OnMapLoaded": null,
-          "OnMapUnloaded": null,
           "UseMapFromLaunch": true
         }
       ],
       "Children": []
     },
     {
-      "Id": "1b64746c-604a-4d95-a4b6-9e0a515c6d2f",
+      "__guid": "1b64746c-604a-4d95-a4b6-9e0a515c6d2f",
+      "Flags": 0,
       "Name": "Camera",
       "Position": "781.9669,-112.1864,460.5143",
       "Tags": "maincamera",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Components": [
         {
-          "__type": "CameraComponent",
+          "__type": "Sandbox.CameraComponent",
+          "__guid": "0f9b5f46-d402-4fa6-ae95-1ddbae4d24e2",
           "BackgroundColor": "0.33333,0.46275,0.52157,1",
           "ClearFlags": "All",
           "FieldOfView": 60,
@@ -42,17 +48,24 @@
         },
         {
           "__type": "NoClip",
+          "__guid": "34e10560-18f6-4f49-aec2-5904701529c9",
           "MoveSpeed": 600
         },
         {
-          "__type": "Tonemapping",
+          "__type": "Sandbox.Tonemapping",
+          "__guid": "db3a3744-745f-45c1-a0b9-e0f23334285d",
+          "__version": 1,
+          "ExposureBias": 2,
           "ExposureCompensation": 0,
+          "ExposureMethod": "RGB",
           "MaximumExposure": 2,
           "MinimumExposure": 1,
+          "Mode": "Legacy",
           "Rate": 1
         },
         {
           "__type": "KuwaharaFilter",
+          "__guid": "c1365717-e80a-4bfa-8ca4-fef6e5e3e7ab",
           "Directional": true,
           "RadiusX": 5,
           "RadiusY": 3
@@ -62,14 +75,29 @@
   ],
   "SceneProperties": {
     "FixedUpdateFrequency": 50,
-    "Lerping": true,
     "MaxFixedUpdates": 5,
     "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
     "ThreadedAnimation": true,
     "TimeScale": 1,
-    "UseFixedUpdate": true
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
   },
   "Title": "Map Loader",
   "Description": "A scene that can load maps",
-  "__references": []
+  "LastSaved": "2024-06-05T12:09:00.5023583-04:00",
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
 }

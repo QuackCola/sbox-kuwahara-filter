@@ -29,7 +29,7 @@ struct VertexInput
 
 struct PixelInput
 {
-	float2 uv : TEXCOORD0;
+    float2 vTexCoord : TEXCOORD0;
 
 	// VS only
 	#if ( PROGRAM == VFX_PROGRAM_VS )
@@ -38,7 +38,7 @@ struct PixelInput
 
 	// PS only
 	#if ( ( PROGRAM == VFX_PROGRAM_PS ) )
-		float4 vPositionSs		: SV_ScreenPosition;
+		float4 vPositionSs		: SV_Position;
 	#endif
 };
 
@@ -47,9 +47,8 @@ VS
     PixelInput MainVs( VertexInput i )
     {
         PixelInput o;
-        
-        o.vPositionPs = float4(i.vPositionOs.xy, 0.0f, 1.0f);
-        o.uv = i.vTexCoord;
+        o.vPositionPs = float4(i.vPositionOs.xyz, 1.0f);
+        o.vTexCoord = i.vTexCoord;
         return o;
     }
 }
