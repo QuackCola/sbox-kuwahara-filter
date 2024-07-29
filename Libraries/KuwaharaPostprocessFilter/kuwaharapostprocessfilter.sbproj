@@ -1,0 +1,14 @@
+{
+  "Title": "Kuwahara Postprocess Filter",
+  "Type": "library",
+  "Org": "quack",
+  "Ident": "kuwaharapostprocessfilter",
+  "Schema": 1,
+  "IncludeSourceFiles": false,
+  "Resources": null,
+  "PackageReferences": [],
+  "EditorReferences": null,
+  "Metadata": {
+    "CsProjName": ""
+  }
+}

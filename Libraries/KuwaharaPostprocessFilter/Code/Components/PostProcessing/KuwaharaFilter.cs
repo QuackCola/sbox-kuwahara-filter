@@ -46,15 +46,17 @@ public sealed class KuwaharaFilter : Component, Component.ExecuteInEditor
         if ( !camera.EnablePostProcessing )
             return;
 
-        attributes.Set( "Kuwahara.Directional", Directional );
-        attributes.Set( "Kuwahara.RadiusX", RadiusX );
+		// Set our Shader attributes.
+		//attributes.Set( "Kuwahara.Directional", Directional );
+		attributes.Set( "Kuwahara.RadiusX", RadiusX );
         attributes.Set( "Kuwahara.RadiusY", RadiusY );
 
-        Graphics.GrabFrameTexture( "ColorBuffer", attributes );
+		// Set our Shader Combos.
+		attributes.SetCombo( "D_DIRECTIONAL", Directional );
+
+		Graphics.GrabFrameTexture( "ColorBuffer", attributes );
         Graphics.GrabDepthTexture( "DepthBuffer", attributes );
         Graphics.Blit( Material.Load( "materials/postprocess/kuwahara_filter.vmat" ), attributes );
 
     }
-
-
 }

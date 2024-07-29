@@ -1,0 +1,51 @@
+{
+  "RootObject": {
+    "__guid": "1a3c0498-b60a-4995-b2f3-d8e9b553dbe4",
+    "Flags": 0,
+    "Name": "terry",
+    "Enabled": true,
+    "Children": [
+      {
+        "__guid": "aea3ddb6-2e86-4207-a687-188a3bbcec88",
+        "Flags": 0,
+        "Name": "terry_dummy",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.SkinnedModelRenderer",
+            "__guid": "6dd5b2af-5be5-413f-9de9-93a55f69d3c2",
+            "AnimationGraph": "models/citizen/citizen.vanmgrph",
+            "BodyGroups": 341,
+            "CreateBoneObjects": false,
+            "MaterialGroup": "default",
+            "Model": "models/citizen/citizen.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1",
+            "UseAnimGraph": true
+          },
+          {
+            "__type": "Sandbox.Citizen.CitizenAnimationHelper",
+            "__guid": "f6b42f7c-73f8-44f4-8229-b077e51df445",
+            "BodyWeight": 1,
+            "EyesWeight": 1,
+            "HeadWeight": 1,
+            "LookAtEnabled": false,
+            "Target": {
+              "_type": "component",
+              "component_id": "6dd5b2af-5be5-413f-9de9-93a55f69d3c2",
+              "go": "aea3ddb6-2e86-4207-a687-188a3bbcec88",
+              "component_type": "SkinnedModelRenderer"
+            }
+          }
+        ]
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

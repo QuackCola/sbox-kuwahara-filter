@@ -58,7 +58,12 @@ PS
     #include "postprocess/common.hlsl"
     #include "postprocess/functions.hlsl"
 
-    bool g_bDirectional < Attribute("Kuwahara.Directional"); Default(0); >;
+    DynamicCombo( D_DIRECTIONAL, 0..1, Sys( PC ) );
+
+    RenderState( DepthWriteEnable, false );
+    RenderState( DepthEnable, false );
+
+    //bool g_bDirectional < Attribute("Kuwahara.Directional"); Default(0); >;
     float g_flRadiusX < Attribute("Kuwahara.RadiusX"); Range(0,16); Default(3); >;
     float g_flRadiusY < Attribute("Kuwahara.RadiusY"); Range(0,16); Default(5); >;
 
@@ -108,7 +113,7 @@ PS
     }
 
     
-    float3 KuwaharaFilter(float2 flRadius, float2 vScreenUV, float2 vViewSize, bool bDirectional = false)
+    float3 KuwaharaFilter(float2 flRadius, float2 vScreenUV, float2 vViewSize)
     {
         float3 aMean[4] = {
             {0,0,0},
@@ -135,8 +140,8 @@ PS
         float2 vTexelSize = 1.0/vViewSize;
         float3 vColor;
 
-        if (bDirectional)
-        {
+        //if (bDirectional)
+        #if D_DIRECTIONAL
             // Sobel Operator Start 
             float flGradientX = 0;
             float flGradientY = 0;
@@ -201,9 +206,7 @@ PS
                     }
                 }
             }
-        } 
-        else 
-        {
+        #else
             // Loop through for our samples.
             [unroll]
             for(int i = 0; i < 4; i++) 
@@ -223,7 +226,7 @@ PS
                     }
                 }
             }
-        }
+        #endif
 
         float n = (flRadius.x + 1) * (flRadius.y + 1); // number of samples that we have taken per region
         return CalculateLowestStandardDeviation(n,vColor,aMean,aSigma);
@@ -239,6 +242,6 @@ PS
 
         //g_vRenderTargetSize seems to be what is used in place of stuff like TexelSize from unity & Unreal I guess?.
 
-        return float4(KuwaharaFilter(round(float2(g_flRadiusX,g_flRadiusY)),vScreenUv,g_vRenderTargetSize,g_bDirectional),1);
+        return float4(KuwaharaFilter(round(float2(g_flRadiusX,g_flRadiusY)),vScreenUv,g_vRenderTargetSize),1);
     }
 }

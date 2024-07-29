@@ -7,13 +7,14 @@
       "Name": "Map Loader",
       "Position": "-101.0034,-19.83072,71.2681",
       "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkInterpolation": true,
       "Components": [
         {
           "__type": "Sandbox.MapInstance",
           "__guid": "8a9a04dd-8921-4541-8463-7c4f6586b3d0",
+          "__version": 1,
+          "EnableCollision": true,
           "MapName": "facepunch.square",
+          "NoOrigin": true,
           "UseMapFromLaunch": true
         }
       ],
@@ -24,10 +25,9 @@
       "Flags": 0,
       "Name": "Camera",
       "Position": "781.9669,-112.1864,460.5143",
+      "Rotation": "-0.02572084,0.1819902,0.1375562,0.9732915",
       "Tags": "maincamera",
       "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkInterpolation": true,
       "Components": [
         {
           "__type": "Sandbox.CameraComponent",
@@ -71,6 +71,16 @@
           "RadiusY": 3
         }
       ]
+    },
+    {
+      "__guid": "dd576bac-a297-4e37-8e63-e8cf82a9b03e",
+      "Flags": 0,
+      "Name": "terry",
+      "Position": "2004.901,198.5688,-0.2702388",
+      "Rotation": "0,0,0.9238796,-0.3826834",
+      "Enabled": true,
+      "__Prefab": "prefabs/terry.prefab",
+      "__PrefabVariables": {}
     }
   ],
   "SceneProperties": {
@@ -96,7 +106,6 @@
   },
   "Title": "Map Loader",
   "Description": "A scene that can load maps",
-  "LastSaved": "2024-06-05T12:09:00.5023583-04:00",
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1
