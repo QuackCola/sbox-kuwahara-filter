@@ -140,7 +140,6 @@ PS
         float2 vTexelSize = 1.0/vViewSize;
         float3 vColor;
 
-        //if (bDirectional)
         #if D_DIRECTIONAL
             // Sobel Operator Start 
             float flGradientX = 0;
