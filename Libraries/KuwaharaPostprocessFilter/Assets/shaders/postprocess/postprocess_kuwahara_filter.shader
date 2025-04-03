@@ -6,8 +6,7 @@ HEADER
 
 MODES
 {
-    Default();
-    VrForward();
+    Forward();
 }
 
 FEATURES
