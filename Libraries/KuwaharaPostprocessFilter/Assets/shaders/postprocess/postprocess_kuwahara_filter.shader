@@ -73,15 +73,6 @@ PS
         return Tex2D( g_tColorBuffer, vScreenUv.xy );
     }
 
-    float2 FetchTexelSize()
-    {
-        /* // these two lines are equivalent to g_vRenderTargetSize
-        uint width, height;
-        test.GetDimensions(width, height);
-        */
-        return g_vRenderTargetSize;//float2(width,height);
-    }
-
     float GetRelativeLuminance(float3 vColor)
     {   
         // https://en.wikipedia.org/wiki/Relative_luminance
