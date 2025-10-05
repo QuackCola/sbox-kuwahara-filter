@@ -3,13 +3,23 @@
   "GameObjects": [
     {
       "__guid": "002bc70d-c040-42f7-a594-d83d8d6e7ff0",
+      "__version": 1,
       "Flags": 0,
       "Name": "Scene Information",
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Sandbox.SceneInformation",
           "__guid": "09428983-c95a-41f6-bdcb-466698918976",
+          "__enabled": true,
           "Author": null,
           "Changes": null,
           "Description": "A scene that can load maps",
@@ -24,18 +34,28 @@
           "Title": "Map Loader",
           "Version": null
         }
-      ]
+      ],
+      "Children": []
     },
     {
       "__guid": "c7b7a49f-d221-433f-b9df-5064d4d666ca",
+      "__version": 1,
       "Flags": 0,
       "Name": "Map Loader",
       "Position": "-101.0034,-19.83072,71.2681",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Sandbox.MapInstance",
           "__guid": "8a9a04dd-8921-4541-8463-7c4f6586b3d0",
+          "__enabled": true,
           "__version": 1,
           "EnableCollision": true,
           "MapName": "facepunch.square",
@@ -55,16 +75,23 @@
     },
     {
       "__guid": "1b64746c-604a-4d95-a4b6-9e0a515c6d2f",
+      "__version": 1,
       "Flags": 0,
       "Name": "Camera",
       "Position": "781.9669,-112.1864,460.5143",
       "Rotation": "-0.02572084,0.1819902,0.1375562,0.9732915",
+      "Scale": "1,1,1",
       "Tags": "maincamera",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Sandbox.CameraComponent",
           "__guid": "0f9b5f46-d402-4fa6-ae95-1ddbae4d24e2",
+          "__enabled": true,
           "BackgroundColor": "0.33333,0.46275,0.52157,1",
           "ClearFlags": "All",
           "FieldOfView": 60,
@@ -89,6 +116,7 @@
         {
           "__type": "NoClip",
           "__guid": "34e10560-18f6-4f49-aec2-5904701529c9",
+          "__enabled": true,
           "MoveSpeed": 600,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -100,6 +128,7 @@
         {
           "__type": "Sandbox.Tonemapping",
           "__guid": "db3a3744-745f-45c1-a0b9-e0f23334285d",
+          "__enabled": true,
           "__version": 3,
           "AutoExposureEnabled": true,
           "ExposureCompensation": 0,
@@ -118,6 +147,7 @@
         {
           "__type": "KuwaharaFilter",
           "__guid": "c1365717-e80a-4bfa-8ca4-fef6e5e3e7ab",
+          "__enabled": true,
           "Directional": true,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -125,31 +155,59 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "RadiusX": 5,
-          "RadiusY": 3
+          "RadiusX": 6,
+          "RadiusY": 5
         }
-      ]
+      ],
+      "Children": []
     },
     {
       "__guid": "dd576bac-a297-4e37-8e63-e8cf82a9b03e",
-      "Flags": 0,
-      "Name": "terry",
-      "Position": "2004.901,198.5688,-0.2702388",
-      "Rotation": "0,0,0.9238796,-0.3826834",
-      "Enabled": true,
+      "__version": 1,
       "__Prefab": "prefabs/terry.prefab",
-      "__PrefabVariables": {}
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "1a3c0498-b60a-4995-b2f3-d8e9b553dbe4"
+            },
+            "Property": "Position",
+            "Value": "2004.901,198.5688,-0.2702388"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "1a3c0498-b60a-4995-b2f3-d8e9b553dbe4"
+            },
+            "Property": "Rotation",
+            "Value": "0,0,0.9238796,-0.3826834"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "1a3c0498-b60a-4995-b2f3-d8e9b553dbe4"
+            },
+            "Property": "NetworkInterpolation",
+            "Value": false
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "1a3c0498-b60a-4995-b2f3-d8e9b553dbe4": "dd576bac-a297-4e37-8e63-e8cf82a9b03e",
+        "aea3ddb6-2e86-4207-a687-188a3bbcec88": "87ec9028-4ead-4828-bb4a-999d6f729265",
+        "6dd5b2af-5be5-413f-9de9-93a55f69d3c2": "36fdb7bc-457c-4b99-8aee-8a5e6d3aa3ee",
+        "f6b42f7c-73f8-44f4-8229-b077e51df445": "c5088e6f-cf93-4c05-b26b-1404da19bb3f"
+      }
     }
   ],
   "SceneProperties": {
-    "FixedUpdateFrequency": 50,
-    "MaxFixedUpdates": 5,
-    "NetworkFrequency": 30,
     "NetworkInterpolation": true,
-    "PhysicsSubSteps": 1,
-    "ThreadedAnimation": true,
     "TimeScale": 1,
-    "UseFixedUpdate": true,
+    "WantsSystemScene": true,
     "Metadata": {
       "Title": "Map Loader",
       "Description": "A scene that can load maps"
@@ -167,9 +225,9 @@
       "IncludedBodies": ""
     }
   },
-  "ResourceVersion": 2,
+  "ResourceVersion": 3,
   "Title": "Map Loader",
   "Description": "A scene that can load maps",
   "__references": [],
-  "__version": 2
+  "__version": 3
 }
