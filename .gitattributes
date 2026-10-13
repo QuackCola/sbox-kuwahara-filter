@@ -1,2 +1,16 @@
-# Auto detect text files and perform LF normalization
+# Auto detect text files
 * text=auto
+
+# Anything under assets (content) force crlf for consistent content hashes
+Assets/** text=auto eol=crlf
+
+# Except c# files, auto that
+Editor/**/*.cs text=auto
+Code/**/*.cs text=auto
+
+#
+# GitHub linguist overrides (https://github.com/github-linguist/linguist/blob/main/docs/overrides.md)
+# Lets GitHub know the proper languages, what code is generated, third party, etc. for better stats/diffs
+#
+*.shader linguist-language=HLSL
+*.fxc linguist-language=HLSL
