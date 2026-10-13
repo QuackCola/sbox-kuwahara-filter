@@ -3,7 +3,7 @@
   "GameObjects": [
     {
       "__guid": "002bc70d-c040-42f7-a594-d83d8d6e7ff0",
-      "__version": 1,
+      "__version": 2,
       "Flags": 0,
       "Name": "Scene Information",
       "Position": "0,0,0",
@@ -12,14 +12,16 @@
       "Tags": "",
       "Enabled": true,
       "NetworkMode": 2,
-      "NetworkInterpolation": true,
+      "NetworkFlags": 0,
       "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Sandbox.SceneInformation",
           "__guid": "09428983-c95a-41f6-bdcb-466698918976",
           "__enabled": true,
+          "Flags": 0,
           "Author": null,
           "Changes": null,
           "Description": "A scene that can load maps",
@@ -39,23 +41,25 @@
     },
     {
       "__guid": "c7b7a49f-d221-433f-b9df-5064d4d666ca",
-      "__version": 1,
+      "__version": 2,
       "Flags": 0,
       "Name": "Map Loader",
-      "Position": "-101.0034,-19.83072,71.2681",
+      "Position": "-101.003403,-19.8307209,71.2680969",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "",
       "Enabled": true,
       "NetworkMode": 2,
-      "NetworkInterpolation": true,
+      "NetworkFlags": 0,
       "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Sandbox.MapInstance",
           "__guid": "8a9a04dd-8921-4541-8463-7c4f6586b3d0",
           "__enabled": true,
+          "Flags": 0,
           "__version": 1,
           "EnableCollision": true,
           "MapName": "facepunch.square",
@@ -75,25 +79,28 @@
     },
     {
       "__guid": "1b64746c-604a-4d95-a4b6-9e0a515c6d2f",
-      "__version": 1,
+      "__version": 2,
       "Flags": 0,
       "Name": "Camera",
-      "Position": "781.9669,-112.1864,460.5143",
-      "Rotation": "-0.02572084,0.1819902,0.1375562,0.9732915",
+      "Position": "781.966919,-112.186401,460.514313",
+      "Rotation": "-0.0257208403,0.181990206,0.137556195,0.973291516",
       "Scale": "1,1,1",
       "Tags": "maincamera",
       "Enabled": true,
       "NetworkMode": 2,
-      "NetworkInterpolation": true,
+      "NetworkFlags": 0,
       "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [
         {
           "__type": "Sandbox.CameraComponent",
           "__guid": "0f9b5f46-d402-4fa6-ae95-1ddbae4d24e2",
           "__enabled": true,
+          "Flags": 0,
           "BackgroundColor": "0.33333,0.46275,0.52157,1",
           "ClearFlags": "All",
+          "EnablePostProcessing": true,
           "FieldOfView": 60,
           "FovAxis": "Horizontal",
           "IsMainCamera": true,
@@ -105,9 +112,11 @@
           "OnComponentUpdate": null,
           "Orthographic": false,
           "OrthographicHeight": 1204,
+          "PostProcessAnchor": null,
           "Priority": 1,
           "RenderExcludeTags": "",
           "RenderTags": "",
+          "RenderTexture": null,
           "TargetEye": "None",
           "Viewport": "0,0,1,1",
           "ZFar": 10000,
@@ -117,6 +126,7 @@
           "__type": "NoClip",
           "__guid": "34e10560-18f6-4f49-aec2-5904701529c9",
           "__enabled": true,
+          "Flags": 0,
           "MoveSpeed": 600,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -129,6 +139,7 @@
           "__type": "Sandbox.Tonemapping",
           "__guid": "db3a3744-745f-45c1-a0b9-e0f23334285d",
           "__enabled": true,
+          "Flags": 0,
           "__version": 3,
           "AutoExposureEnabled": true,
           "ExposureCompensation": 0,
@@ -148,6 +159,7 @@
           "__type": "KuwaharaFilter",
           "__guid": "c1365717-e80a-4bfa-8ca4-fef6e5e3e7ab",
           "__enabled": true,
+          "Flags": 0,
           "Directional": true,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -163,8 +175,11 @@
     },
     {
       "__guid": "dd576bac-a297-4e37-8e63-e8cf82a9b03e",
-      "__version": 1,
-      "__Prefab": "prefabs/terry.prefab",
+      "__version": 2,
+      "__Prefab": {
+        "Id": "46086780-3083-406f-8883-da37d007e80d",
+        "Path": "prefabs/terry.prefab"
+      },
       "__PrefabInstancePatch": {
         "AddedObjects": [],
         "RemovedObjects": [],
@@ -175,7 +190,7 @@
               "IdValue": "1a3c0498-b60a-4995-b2f3-d8e9b553dbe4"
             },
             "Property": "Position",
-            "Value": "2004.901,198.5688,-0.2702388"
+            "Value": "2004.901,198.568802,-0.270238787"
           },
           {
             "Target": {
@@ -183,15 +198,22 @@
               "IdValue": "1a3c0498-b60a-4995-b2f3-d8e9b553dbe4"
             },
             "Property": "Rotation",
-            "Value": "0,0,0.9238796,-0.3826834"
+            "Value": "0,0,0.923879623,-0.382683396"
           },
           {
             "Target": {
-              "Type": "GameObject",
-              "IdValue": "1a3c0498-b60a-4995-b2f3-d8e9b553dbe4"
+              "Type": "Component",
+              "IdValue": "6dd5b2af-5be5-413f-9de9-93a55f69d3c2"
             },
-            "Property": "NetworkInterpolation",
-            "Value": false
+            "Property": "Parameters",
+            "Value": {
+              "bools": {
+                "ik.hand_left.enabled": false,
+                "ik.hand_right.enabled": false,
+                "ik.foot_left.enabled": false,
+                "ik.foot_right.enabled": false
+              }
+            }
           }
         ],
         "MovedObjects": []
@@ -206,6 +228,7 @@
   ],
   "SceneProperties": {
     "NetworkInterpolation": true,
+    "PhysicsMode": "Physics3D",
     "TimeScale": 1,
     "WantsSystemScene": true,
     "Metadata": {
@@ -222,7 +245,22 @@
       "AgentStepSize": 18,
       "AgentMaxSlope": 40,
       "ExcludedBodies": "",
-      "IncludedBodies": ""
+      "IncludedBodies": "",
+      "DeferGeneration": false,
+      "CustomBounds": false
+    },
+    "GameObjectSystems": {
+      "Sandbox.Clutter.ClutterGridSystem": {
+        "Storage": {
+          "$blob": "64db792e-5935-8fbc-8cfa-050cd49fa7fd",
+          "$refs": []
+        }
+      },
+      "Sandbox.SelectionSetsSystem": {
+        "Data": {
+          "SelectionSets": []
+        }
+      }
     }
   },
   "ResourceVersion": 3,
